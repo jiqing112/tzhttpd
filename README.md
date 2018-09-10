@@ -1,19 +1,18 @@
 ### TZHTTPD
-This is a high-performance while easy-to-be-used HTTP service framework, which can help you develop a HTTP-featured server quickly.   
-
+这是一个高性能且易于使用的HTTP服务框架，可以帮助您快速开发支持HTTP的服务器。
 ### Key Points of TZHTTPD
-1. Developed with Boost.Asio, which means high-concurrency with high-performance. Very poor virtual machine can support up to 1.5K QPS, so I believe it can satisfy performance requirements in most cases.    
-2. Just supporting HTTP GET/POST methods, but feed the need of most backend application gateway development. Parameters and post body are well handled and structed. Routing handlers based on uri regex-match.    
-3. Connection can be keep-alived, and automatically timed out and be removed.   
-4. Support loading handlers through .so library, this feature simulates legacy CGI deployment conveniently. This library try its best loading and updating handler with less impact for others. And more amazing thing is that you can just build one tzhttpd instance and copy it everywhere, and write your handlers and build them to individual so, add them to configure files, just like plugins.   
-5. Based on Boost library and C++0x standard, so can used in legacy but widely-deploied RHEL-6.x environment.   
-6. Not buggy, and has stood tests in a way.    
+1.使用Boost.Asio开发，这意味着高并发性和高性能。非常差的虚拟机可以支持高达1.5K的QPS，所以我相信它在大多数情况下都能满足性能要求。
+2.仅支持HTTP GET / POST方法，但满足大多数后端应用程序网关开发的需要。参数和桩体处理得很好。基于uri正则表达式匹配的路由处理程序。
+3.连接可以保持，并自动超时并被删除。
+4.通过.so库支持加载处理程序，此功能可以方便地模拟传统的CGI部署。该库尝试其最佳加载和更新处理程序，对其他人的影响较小。更令人惊奇的是，您可以构建一个tzhttpd实例并将其复制到任何地方，并编写处理程序并将其构建为个人，因此，将它们添加到配置文件，就像插件一样。
+5.基于Boost库和C ++ 0x标准，因此可以在传统但广泛使用的RHEL-6.x环境中使用。
+6.没有bug，并且在某种程度上经受了考验。   
 
 ### Possible usage
-1. General Web server, KIDDING. TZHTTPD does not support full HTTP protocal, so it may not behave well in this situation. But I also add the VHost, Cache Control features, and my [homepage](http://taozj.net) is hosted by this, it works fine.   
-2. Backend application gateway, YES. TZHTTPD is designed and optimized for this purpose.   
-3. HTTP protocal adaptor. This way TZHTTPD can be use as proxy, it accept and parse HTTP request, forward the request and transform corresponding respose as standard HTTP response.   
-4. Service manage interface. You can integrate TZHTTPD into your already project, then you can send customize uri to interfere your service, such as configuration update, runtime statistic output, ...   
+1.通用Web服务器，KIDDING。 TZHTTPD不支持完整的HTTP协议，因此在这种情况下可能表现不佳。 但我还添加了VHost，Cache Control功能，而我的[主页]（http://taozj.net）由此托管，它运行正常。
+2.后端应用程序网关，是。 TZHTTPD专为此目的而设计和优化。
+3. HTTP协议适配器。 这样TZHTTPD可以用作代理，它接受并解析HTTP请求，转发请求并将相应的respose转换为标准的HTTP响应。
+4.服务管理界面。 您可以将TZHTTPD集成到您已经完成的项目中，然后您可以发送自定义uri来干扰您的服务，例如配置更新，运行时统计输出，...... 
 
 ### Performance
 ![siege](siege.png?raw=true "siege")
